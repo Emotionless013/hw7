@@ -41,5 +41,56 @@ public class Main {
         System.out.println("Имя сотрудника - " + firstNameNew);
         String middleNameNew = fullNameNew.substring(secondSpace+1);
         System.out.println("Отчество сотрудника - " + middleNameNew);
+
+        //шестое задание
+        //Периодически данные в наших регистрах заполняются неверно, и Ф. И. О. сотрудников записывают со строчных букв.
+        //Такую оплошность нужно исправить, написав программу, которая преобразует написанное со строчных букв Ф. И. О.
+        // в правильный формат.
+        //В качестве исходных данных используйте строку fullName c данными “ivanov ivan ivanovich“, которые нужно
+        // преобразовать в “Ivanov Ivan Ivanovich”.
+        //Выведите результат программы в консоль в формате: “Верное написание Ф. И. О. сотрудника с заглавных букв — …”
+        String fullNameSix = "ivanov ivan ivanovich";
+        char[] array=fullNameSix.toCharArray();
+        array[0] = Character.toUpperCase(array[0]);
+        for (int i = 0; i < array.length; i++) {
+        if(array[i] == ' '){
+               array[i+1] = Character.toUpperCase(array[i+1]);
+            }
+        }
+        String fullNameSixChecked = new String(array);
+        System.out.println("Верное написание Ф. И. О. сотрудника с заглавных букв — " + fullNameSixChecked);
+
+        //седьмое задание
+        //Имеется две строки.
+        //Первая: "135"
+        //Вторая: "246"
+        //Соберите из двух строк одну, содержащую данные "123456".
+        //Использовать сортировку нельзя.
+        //Набор чисел задан для понимания позиций, которые они должны занять в итоговой строке.
+        //Выведите результат в консоль в формате: “Данные строки — ….”
+        String firstString = "135";
+        char[] firstToArray = firstString.toCharArray();
+        String secondString = "246";
+        char[] secondToArray = secondString.toCharArray();
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < firstToArray.length; i++) {
+            result.append(firstToArray[i]);
+            result.append(secondToArray[i]);
+        }
+        System.out.println("Данные строки — " + result);
+
+        //восьмое задание
+        //Дана строка из букв английского алфавита "aabccddefgghiijjkk".
+        //Нужно найти и напечатать буквы, которые дублируются в строке.
+        //Обратите внимание, что строка отсортирована, т. е. дубли идут друг за другом.
+        //В итоге в консоль должен быть выведен результат программы: "acdgijk".
+        String newString = "aabccddefgghiijjkk";
+        char[] newArray = newString.toCharArray();
+        for (int i = 0; i < newArray.length-1; i++) {
+            if (newArray[i]==newArray[i+1]) {
+                System.out.print(newArray[i]);
+            }
+
+        }
     }
 }
